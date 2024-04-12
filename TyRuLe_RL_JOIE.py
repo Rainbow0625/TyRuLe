@@ -41,10 +41,6 @@ _coocc = 1000
 if __name__ == '__main__':
     begin = time.time()
 
-    getParasJOIE()
-
-    sys.exit()
-
     parser = argparse.ArgumentParser(description="Setting some arguments.")
     parser.add_argument('--lpp', type=str, default="./linkprediction/{0}".format(BENCHMARK))
     args = parser.parse_args()
