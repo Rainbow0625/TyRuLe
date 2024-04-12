@@ -38,24 +38,6 @@ _syn = 1000
 _coocc = 1000
 
 
-def getEmbeddingJOIE():
-    with tf.Session() as sess:
-        new_saver = tf.train.import_meta_graph('./checkpoint_JOIE/transe-model-m2.ckpt.meta')
-        new_saver.restore(sess, tf.train.latest_checkpoint('./checkpoint_JOIE'))
-
-    num_rel, num_ent, dim = getParasJOIE()
-
-    r1 = tf.get_variable(name='r1', shape=[num_rel, dim], dtype=tf.float32)
-    # ht1 = tf.get_variable(name='ht1', shape=[num_ent, dim], dtype=tf.float32)
-
-    saver = tf.train.Saver()
-
-    with tf.Session() as sess:
-        saver.restore(sess, "./checkpoint_JOIE")
-        print("v1:", sess.run(r1))
-        print("Model Restored")
-
-
 if __name__ == '__main__':
     begin = time.time()
 
